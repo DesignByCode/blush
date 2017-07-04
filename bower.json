@@ -1,0 +1,17 @@
+{
+  "name": "blush",
+  "authors": [
+    "Claude <claude@designbycode.co.za"
+  ],
+  "description": "Wordpress theme",
+  "main": "",
+  "license": "MIT",
+  "homepage": "http://designbycode.co.za",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
