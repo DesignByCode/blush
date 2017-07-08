@@ -1,0 +1,20 @@
+
+
+.widget_products ul.product_list_widget
+  padding: 0 $the__global__padding
+
+
+.woocommerce ul.cart_list li img, .woocommerce ul.product_list_widget li img
+  position: relative
+  z-index: 1
+  border-radius: 100%
+  border: solid 3px $primary-color
+  transform: scale(1) translateX(0%)
+  transition: transform 0.35s ease
+  will-change: transfrom, border-width
+
+  &:hover
+    z-index: 20
+    transform: scale(4) translateX(-25%)
+    border-width: 1px
+    filter: drop-shadow(rgba($primary-color, 0.95) 0 0 20px)

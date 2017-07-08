@@ -1,0 +1,22 @@
+
+
+.widget
+
+  &-area
+    margin-top: $the__global__padding * 3
+    margin-bottom: $the__global__padding * 3
+
+  &-title
+    position: relative
+    background: #fff
+    padding: $the__global__padding
+    filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
+
+    &::after
+      position: absolute
+      content: ''
+      bottom: -10px
+      left: $the__global__padding
+      border-top: solid 10px #fff
+      border-left: solid 10px transparent
+      border-right: solid 10px transparent

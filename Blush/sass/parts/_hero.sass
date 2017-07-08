@@ -1,0 +1,46 @@
+.hero
+  position: relative
+  color: #fff
+  text-shadow: rgba(black, 0.95) 1px 1px 30px
+  overflow: hidden
+  height: 100vh
+  padding-top: 50vh
+
+
+
+  &__heading
+    position: relative
+    z-index: 2
+    font-size: 60px
+    margin: 0
+    a
+      color: #fff
+      &:hover
+        text-decoration: none
+
+  p
+    position: relative
+    z-index: 2
+    margin: 0
+
+
+#hero-video
+  position: absolute
+  min-width: 100%
+  min-height: 100vh
+  left: 0
+  right: 0
+  top: 0
+  z-index: 1
+  +media-down(md)
+    display: none
+
+
+.center-the-block
+  position: relative
+  z-index: 2
+  transform: translateY(-100%)
+
+
+.custom-logo
+  text-shadow: rgba(black, 0.95) 1px 1px 30px

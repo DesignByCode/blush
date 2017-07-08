@@ -1,0 +1,163 @@
+
+.wp-caption
+	margin-bottom: $the__global__padding
+	max-width: 100%
+
+	img[class*="wp-image-"]
+		display: block
+  	margin-left: auto
+  	margin-right: auto
+
+
+	&-text
+		margin: $the__global__padding 0
+
+
+abbr.required
+	text-decoration: none
+
+
+
+.sticky
+	display: block
+
+
+.hentry
+	margin: 0 0 $the__global__padding
+
+
+.updated:not(.published)
+	display: none
+
+
+.page-content,
+.entry-content,
+.entry-summary
+	margin: $the__global__padding 0 0
+
+
+.page-links
+	clear: both
+	margin: 0 0 $the__global__padding
+
+
+.comment-content a
+	word-wrap: break-word
+
+.bypostauthor
+	display: block
+
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer
+	display: none
+
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer
+	display: block
+
+
+/**  Alignment **/
+
+.alignleft
+	display: inline
+	float: left
+	margin-right: 1.5em
+
+
+.alignright
+	display: inline
+	float: right
+	margin-left: 1.5em
+
+
+.aligncenter
+	clear: both
+	display: block
+	margin-left: auto
+	margin-right: auto
+
+
+
+/* Text meant only for screen readers. */
+.screen-reader-text
+	clip: rect(1px, 1px, 1px, 1px)
+	position: absolute !important
+	height: 1px
+	width: 1px
+	overflow: hidden
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+
+	&:focus
+		background-color: $mute-color
+		border-radius: 3px
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6)
+		clip: auto !important
+		color: $mute-border-color
+		display: block
+		+font-size(0.875)
+		font-weight: bold
+		height: auto
+		left: 5px
+		line-height: normal
+		padding: 15px 23px 14px
+		text-decoration: none
+		top: 5px
+		width: auto
+		z-index: 100000 /* Above WP toolbar. */
+
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus
+	outline: 0
+
+
+/** Gallary settings **/
+
+.gallery
+  margin-bottom: $the__global__padding
+
+  &-item
+    display: inline-block
+    text-align: center
+    vertical-align: top
+    width: 100%
+
+    // Loops to enumerate the classes for gallery columns.
+    @for $i from 2 through 9
+      .gallery-columns-#{$i}
+        max-width: ( 100% / $i )
+
+
+  &-caption
+    display: block
+
+
+/** Media settings **/
+
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley
+	border: none
+	margin-bottom: 0
+	margin-top: 0
+	padding: 0
+
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object
+	max-width: 100%
+
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link
+	display: inline-block
+
+
+img
+	max-width: 100%
+	height: auto

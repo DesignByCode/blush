@@ -1,0 +1,29 @@
+
+
+.woocommerce-MyAccount-navigation
+  background: $mute-color
+  border: solid 1px $mute-border-color
+  +radius
+
+  ul
+    list-style: none
+
+  li.woocommerce-MyAccount-navigation-link
+    line-height: 3
+    font-weight: bold
+
+    &::before
+      width: 30px
+      height: 30px
+      line-height: 30px
+      text-align: center
+      display: inline-block
+      font-family: "Lunacon"
+      content: $unicode-cart
+      margin-right: $the__global__padding
+      color: $secondary-color
+      +radius
+
+  .is-active::before
+    background: $secondary-color !important
+    color: $mute-color !important

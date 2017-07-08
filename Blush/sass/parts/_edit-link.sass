@@ -1,0 +1,32 @@
+
+
+.post-edit-link
+  position: relative
+  width: 40px
+  height: 40px
+  display: block
+  background: $primary-color
+  +radius(100%)
+  box-shadow: rgba(#000, 0.5) 0 3px 10px
+  color: transparent
+  transform: scale(0.8)
+  transition: transform 0.5s ease
+  opacity: 0.2
+  will-change: transform, opacity
+
+
+  &::after
+    position: absolute
+    content: $unicode-pencil
+    color: #fff
+    width: 40px
+    height: 40px
+    text-align: center
+    line-height: 40px
+    top: 0
+    left: 0
+    font-family: "Lunacon"
+
+  &:hover
+    transform: scale(1.2)
+    opacity: 1

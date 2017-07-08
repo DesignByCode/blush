@@ -1,0 +1,50 @@
+
+
+.flex-reverse
+  flex-direction: row-reverse
+
+.content-area
+  position: relative
+  padding: $the__global__padding
+  margin-top: $the__global__padding * 3
+  margin-bottom: $the__global__padding * 3
+  background: #fff
+  +radius($global-border-radius)
+  filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
+
+  &-right
+    +media-up(md)
+      +radius(0 $global-border-radius $global-border-radius 0)
+
+    &::before
+
+      +media-up(md)
+        position: absolute
+        content: ''
+        right: -100%
+        top: 0
+        bottom: 0
+        background: #fff
+        width: 100%
+
+
+  &-left
+    +media-up(md)
+      +radius(0 $global-border-radius $global-border-radius 0)
+
+    &::before
+
+      +media-up(md)
+        position: absolute
+        content: ''
+        left: -100%
+        top: 0
+        bottom: 0
+        background: #fff
+        width: 100%
+
+
+.banner-image
+  position: relative
+  filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
+  margin-bottom: $the__global__padding

@@ -1,0 +1,20 @@
+
+
+.widget_search
+  position: relative
+  background: #fff
+  padding: $the__global__padding
+  filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
+
+  .screen-reader-text
+    display: none
+
+  input[type="search"]
+    @extend .form__item
+    margin-bottom: $the__global__padding
+
+  input[type="submit"]
+    @extend .btn
+    @extend .btn--primary
+    display: block
+    width: 100%
