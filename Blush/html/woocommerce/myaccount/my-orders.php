@@ -10,10 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $my_orders_columns = apply_filters( 'woocommerce_my_account_my_orders_columns', array(
-	'order-number'  => __( 'Order', 'woocommerce' ),
-	'order-date'    => __( 'Date', 'woocommerce' ),
-	'order-status'  => __( 'Status', 'woocommerce' ),
-	'order-total'   => __( 'Total', 'woocommerce' ),
+	'order-number'  => __( 'Order', 'blush' ),
+	'order-date'    => __( 'Date', 'blush' ),
+	'order-status'  => __( 'Status', 'blush' ),
+	'order-total'   => __( 'Total', 'blush' ),
 	'order-actions' => '&nbsp;',
 ) );
 
@@ -27,7 +27,7 @@ $customer_orders = get_posts( apply_filters( 'woocommerce_my_account_my_orders_q
 
 if ( $customer_orders ) : ?>
 
-	<h2><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', __( 'Recent orders', 'woocommerce' ) ); ?></h2>
+	<h2><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', __( 'Recent orders', 'blush' ) ); ?></h2>
 
 	<table class="shop_table shop_table_responsive my_account_orders">
 
@@ -52,7 +52,7 @@ if ( $customer_orders ) : ?>
 
 							<?php elseif ( 'order-number' === $column_id ) : ?>
 								<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
-									<?php echo _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number(); ?>
+									<?php echo _x( '#', 'hash before order number', 'blush' ) . $order->get_order_number(); ?>
 								</a>
 
 							<?php elseif ( 'order-date' === $column_id ) : ?>
@@ -64,7 +64,7 @@ if ( $customer_orders ) : ?>
 							<?php elseif ( 'order-total' === $column_id ) : ?>
 								<?php
 								/* translators: 1: formatted order total 2: total order items */
-								printf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count );
+								printf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'blush' ), $order->get_formatted_order_total(), $item_count );
 								?>
 
 							<?php elseif ( 'order-actions' === $column_id ) : ?>
@@ -72,15 +72,15 @@ if ( $customer_orders ) : ?>
 									$actions = array(
 										'pay'    => array(
 											'url'  => $order->get_checkout_payment_url(),
-											'name' => __( 'Pay', 'woocommerce' ),
+											'name' => __( 'Pay', 'blush' ),
 										),
 										'view'   => array(
 											'url'  => $order->get_view_order_url(),
-											'name' => __( 'View', 'woocommerce' ),
+											'name' => __( 'View', 'blush' ),
 										),
 										'cancel' => array(
 											'url'  => $order->get_cancel_order_url( wc_get_page_permalink( 'myaccount' ) ),
-											'name' => __( 'Cancel', 'woocommerce' ),
+											'name' => __( 'Cancel', 'blush' ),
 										),
 									);
 

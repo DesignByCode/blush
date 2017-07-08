@@ -90,7 +90,7 @@ if ( post_password_required() ) {
 	endif;
 	$args = array(
 		'comment_field' => '
-		<label for="comment" class="form__label"> '. _x('Comment', 'noun') .'</label>
+		<label for="comment" class="form__label"> '. _e('Comment', 'blush') .'</label>
 		<textarea id="comment" name="comment" class="form__item" aria-required="true" rows="8" ></textarea>
 		',
 		'class_submit' => 'btn btn--primary'

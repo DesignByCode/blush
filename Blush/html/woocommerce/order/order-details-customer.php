@@ -23,27 +23,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section class="woocommerce-customer-details">
 
-	<h2><?php _e( 'Customer details', 'woocommerce' ); ?></h2>
+	<h2><?php _e( 'Customer details', 'blush' ); ?></h2>
 
 	<table class="woocommerce-table woocommerce-table--customer-details shop_table customer_details">
 
 		<?php if ( $order->get_customer_note() ) : ?>
 			<tr>
-				<th><?php _e( 'Note:', 'woocommerce' ); ?></th>
+				<th><?php _e( 'Note:', 'blush' ); ?></th>
 				<td><?php echo wptexturize( $order->get_customer_note() ); ?></td>
 			</tr>
 		<?php endif; ?>
 
 		<?php if ( $order->get_billing_email() ) : ?>
 			<tr>
-				<th><?php _e( 'Email:', 'woocommerce' ); ?></th>
+				<th><?php _e( 'Email:', 'blush' ); ?></th>
 				<td><?php echo esc_html( $order->get_billing_email() ); ?></td>
 			</tr>
 		<?php endif; ?>
 
 		<?php if ( $order->get_billing_phone() ) : ?>
 			<tr>
-				<th><?php _e( 'Phone:', 'woocommerce' ); ?></th>
+				<th><?php _e( 'Phone:', 'blush' ); ?></th>
 				<td><?php echo esc_html( $order->get_billing_phone() ); ?></td>
 			</tr>
 		<?php endif; ?>
@@ -60,10 +60,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php endif; ?>
 
-			<h3 class="woocommerce-column__title"><?php _e( 'Billing address', 'woocommerce' ); ?></h3>
+			<h3 class="woocommerce-column__title"><?php _e( 'Billing address', 'blush' ); ?></h3>
 
 			<address>
-				<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
+				<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'blush' ); ?>
 			</address>
 
 			<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
@@ -72,10 +72,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2">
 
-			<h3 class="woocommerce-column__title"><?php _e( 'Shipping address', 'woocommerce' ); ?></h3>
+			<h3 class="woocommerce-column__title"><?php _e( 'Shipping address', 'blush' ); ?></h3>
 
 			<address>
-				<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
+				<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'blush' ); ?>
 			</address>
 
 		</div><!-- /.col-2 -->
