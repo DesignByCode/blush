@@ -4,7 +4,6 @@
 // == URL: http://lunaframework.co.za
 // ==========================================
 
-
 // Variables
 //
 // You can override the default values by setting the variables in your Sass
@@ -15,7 +14,7 @@ $base-font-size: 16px !default
 $base-icon-size: 14px !default
 
 // The base line height determines the basic unit of vertical rhythm.
-$base-line-height: 28px !default
+$base-line-height: 24px !default
 
 // The length unit in which to output vertical rhythm values.
 // Supported values: px, em, rem.
@@ -25,8 +24,8 @@ $base-unit: 'em' !default
 $base-font-family: 'Roboto', sans-serif !default
 
 // The font sizes for h1-h6.
-$h1-font-size: 1.8   * $base-font-size !default
-$h2-font-size: 1.25  * $base-font-size !default
+$h1-font-size: 2.2   * $base-font-size !default
+$h2-font-size: 1.5  * $base-font-size !default
 $h3-font-size: 1.17 * $base-font-size !default
 $h4-font-size: 1    * $base-font-size !default
 $h5-font-size: 0.83 * $base-font-size !default
@@ -47,7 +46,7 @@ $normalize-vertical-rhythm: true !default
 
 $the__column__count: 12
 $the__width__of__wrapper: 98%
-$the__max__width__of__wrapper: 1440px
+$the__max__width__of__wrapper: 1140px
 $the__global__padding: 15px
 
 
@@ -74,33 +73,16 @@ $_breakpoints : (xs: $grid__breakpoint__xs, sm: $grid__breakpoint__sm, md: $grid
 
 
 // ==========================================
-// == Global Styles
-// ==========================================
-
-
-$global-border-radius: 3px
-
-$global-background-color: #eee
-$global-font-color: #666
-$global-link-color: #ab46bd
-$global-header-font: 'Montserrat Alternates', sans-serif
-$global-body-font: 'Roboto', sans-serif
-
-$font-path: 'fonts'
-
-
-// ==========================================
 // == Colors
 // ==========================================
 
 
 
-
-
 // Main Colors
-$primary-color: purple //#ab46bd
-$secondary-color: tomato
-$dark-color: #222
+$primary-color: #069
+$secondary-color: #5c258d
+$dark-color: #021826
+$light-color: #fff
 
 $mute-color: #f7f7f7
 $mute-border-color: #e6e9ec
@@ -114,6 +96,8 @@ $warning-color: #f09300
 $success-color: #008c3a
 $danger-color: #ea4335
 
+$theme: 'dreary-day'
+@import "theme-colors/main"
 
 
 // ==========================================
@@ -121,9 +105,31 @@ $danger-color: #ea4335
 // ==========================================
 
 $_colors: (primary: $primary-color, secondary: $secondary-color, dark: $dark-color)
-$_custom_colors: (black: #000, white: #fff)
+$_custom_colors: (black: #000, white: $light-color)
 
-$_nofiy_colors: (default: #fff, info: $info-color, success: $success-color, warning: $warning-color, danger: $danger-color, )
+$_nofiy_colors: (default: $light-color, info: $info-color, success: $success-color, warning: $warning-color, danger: $danger-color, )
+
+// Merge Colors
+$_color_set: map-merge($_colors, $_custom_colors)
+$_color_set: map-merge($_color_set, $_nofiy_colors)
+
+
+// ==========================================
+// == Global Styles
+// ==========================================
+
+
+$global-border-radius: 5px
+
+$global-background-color: $light-color
+$global-font-color: #666
+$global-link-color: $primary-color
+$global-header-font: 'Montserrat Alternates', sans-serif
+$global-body-font: 'Roboto', sans-serif
+
+$font-path: 'fonts'
+
+
 
 // Merge Colors
 $_color_set: map-merge($_colors, $_custom_colors)
@@ -146,21 +152,20 @@ $the__button__border__radius: $global-border-radius
 $navigation__breakpoint: 900px
 $navigation__height: 60px
 $navigation__padding: 0px
-$navigation__brand__color: #fff
+$navigation__brand__color: $light-color
 $navigation__brand__font__size: 28px
 $navigation__background__color: $primary-color
 
-$navigation__links__color: #fff
+$navigation__links__color: $light-color
 $navigation__links__color__hover: $primary-color
 
 $navigation__links__background__color: transparent
-$navigation__links__background__color__hover: #fff
+$navigation__links__background__color__hover: $light-color
 // Submenu
 $navigation__submenu__links__color: $primary-color
-$navigation__submenu__links__color__hover: $primary-color
-
+$navigation__submenu__links__color__hover: #eee
 $navigation__submenu__links__background__color: #eee
-$navigation__submenu__links__background__color__hover: #ddd
+$navigation__submenu__links__background__color__hover: $primary-color
 
 // Nav Button
 $navicon__backgound__color: transparent

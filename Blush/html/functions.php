@@ -104,16 +104,41 @@ add_action( 'after_setup_theme', 'blush_content_width', 0 );
  */
 function blush_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'blush' ),
-		'id'            => 'sidebar-1',
+		'name'          => esc_html__( 'Sidebar on Left', 'blush' ),
+		'id'            => 'sidebar-left',
 		'description'   => esc_html__( 'Add widgets here.', 'blush' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar on Right', 'blush' ),
+		'id'            => 'sidebar-right',
+		'description'   => esc_html__( 'Add widgets here.', 'blush' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'blush' ),
+		'id'            => 'footer',
+		'description'   => esc_html__( 'Add widgets here.', 'blush' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+
+
 }
 add_action( 'widgets_init', 'blush_widgets_init' );
+
+
 
 /**
  * Enqueue scripts and styles.
@@ -121,7 +146,7 @@ add_action( 'widgets_init', 'blush_widgets_init' );
 function blush_scripts() {
 	wp_enqueue_style( 'blush-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'blush-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'blush-navigation', get_template_directory_uri() . '/js/app.js', array(), '20151915', true );
 
 	wp_enqueue_script( 'blush-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -131,6 +156,26 @@ function blush_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'blush_scripts' );
 
+
+/**************************
+* Add menu to the admin bar
+**************************/
+
+function dbc_add_link_to_admin_bar(){
+	global $wp_admin_bar;
+	$wp_admin_bar->add_menu(array(
+		'id' => 'designbycode_website',
+		'title' => 'DESIGN BY CODE',
+		'href' => 'http://designbycode.co.za'
+	));
+	$wp_admin_bar->add_menu(array(
+		'id' => 'everhost_website',
+		'title' => 'EVERHOST',
+		'href' => 'https://everhost.co.za'
+	));
+}
+
+add_action('wp_before_admin_bar_render', 'dbc_add_link_to_admin_bar');
 
 
 /**
@@ -158,27 +203,28 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+ * Load in Custom Walker function
+ */
+require get_template_directory(). '/inc/LunaWalkerMenu.php';
 
-load_template(get_template_directory(). '/inc/LunaWalkerMenu.php');
+/**
+ * Load custom single woocommerce page layout
+ */
+require get_template_directory(). '/custom-inc/woocommerce-single-products-page.php';
 
 
-
-/**************************
-* Add menu to the admin bar
-**************************/
-
-function dbc_add_link_to_admin_bar(){
-	global $wp_admin_bar;
-	$wp_admin_bar->add_menu(array(
-		'id' => 'designbycode_website',
-		'title' => 'DESIGN BY CODE',
-		'href' => 'http://designbycode.co.za'
-	));
-	$wp_admin_bar->add_menu(array(
-		'id' => 'everhost_website',
-		'title' => 'EVERHOST',
-		'href' => 'https://everhost.co.za'
-	));
+function vnmFunctionality_embedWrapper2($html, $url, $attr, $post_id) {
+    return '<div class="embedwrapper">' . $html . '</div>';
 }
 
-add_action('wp_before_admin_bar_render', 'dbc_add_link_to_admin_bar');
+function vnmFunctionality_embedWrapper($html, $url, $attr, $post_id) {
+
+    if (strpos($html, 'youtube') !== false) {
+        return '<div class="__wide-screen">' . $html . '</div>';
+    }
+
+    return $html;
+}
+
+add_filter('embed_oembed_html', 'vnmFunctionality_embedWrapper', 10, 4);

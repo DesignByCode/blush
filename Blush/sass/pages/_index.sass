@@ -14,7 +14,7 @@
 
   &-right
     +media-up(md)
-      +radius(0 $global-border-radius $global-border-radius 0)
+      +radius($global-border-radius 0 0 $global-border-radius )
 
     &::before
 
@@ -46,5 +46,7 @@
 
 .banner-image
   position: relative
-  filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
   margin-bottom: $the__global__padding
+  img
+    filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
+    +radius

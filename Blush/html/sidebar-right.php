@@ -7,11 +7,11 @@
  * @package Blush
  */
 
-if ( ! is_active_sidebar( 'sidebar-left' ) ) {
+if ( ! is_active_sidebar( 'sidebar-right' ) ) {
 	return;
 }
 ?>
 
-<aside id="sidebar-left" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-left' ); ?>
+<aside id="sidebar-right" class="widget-area">
+	<?php dynamic_sidebar( 'sidebar-right' ); ?>
 </aside><!-- #secondary -->

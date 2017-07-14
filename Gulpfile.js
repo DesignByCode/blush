@@ -6,6 +6,7 @@ const gulp         = require('gulp'),
       autoprefixer = require('gulp-autoprefixer'),
       sourcemaps   = require('gulp-sourcemaps'),
       /** javascript **/
+      concat       = require('gulp-concat'),
       uglify       = require('gulp-uglify'),
       /** Images **/
       imagemin     = require('gulp-imagemin'),
@@ -29,6 +30,11 @@ const Paths = {
 
 /** An Array of Sass file paths to include **/
 const SassArray = [];
+
+const JavascriptArray = [
+  Paths.bower + '/jquery/dist/jquery.js',
+  theme + '/js/navigation.js'
+];
 
 const FontArray = [
   `${Paths.bower}/lunacon/lunacon/fonts/**/*.{eot,svg,ttf,woff}`
@@ -60,8 +66,9 @@ gulp.task('html', ()=>{
 
 /** Javascript Builder **/
 gulp.task('javasript', ()=>{
-  return gulp.src(theme + '/js/**/*.js')
+  return gulp.src(JavascriptArray)
     .pipe(gulpif(!inDevelopment, uglify()))
+    .pipe(concat('app.js'))
     .pipe(gulp.dest(output + '/js'));
 });
 
@@ -85,6 +92,11 @@ gulp.task('watch', ()=>{
   gulp.watch(theme + '/js/**/*.js', ['javasript']);
   gulp.watch(theme + '/img/**/*.{jpg,jpeg,png,gif,webp}', ['image']);
 
+});
+
+/** Remove fonts from build folder **/
+gulp .task('clean', ()=>{
+  del([output + '/fonts/**/*'], {force: true});
 });
 
 
