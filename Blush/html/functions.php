@@ -218,7 +218,7 @@ function vnmFunctionality_embedWrapper2($html, $url, $attr, $post_id) {
     return '<div class="embedwrapper">' . $html . '</div>';
 }
 
-function vnmFunctionality_embedWrapper($html, $url, $attr, $post_id) {
+function blush_embed_youtub_videos($html, $url, $attr, $post_id) {
 
     if (strpos($html, 'youtube') !== false) {
         return '<div class="__wide-screen">' . $html . '</div>';
@@ -227,4 +227,4 @@ function vnmFunctionality_embedWrapper($html, $url, $attr, $post_id) {
     return $html;
 }
 
-add_filter('embed_oembed_html', 'vnmFunctionality_embedWrapper', 10, 4);
+add_filter('embed_oembed_html', 'blush_embed_youtub_videos', 10, 4);
