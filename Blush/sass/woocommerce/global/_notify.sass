@@ -1,0 +1,23 @@
+
+.woocommerce
+  .notify
+    line-height: 40px
+    list-style: none
+    +clearfix
+
+  .notify a.button
+    float: right !important
+    margin-right: $the__global__padding * 2
+
+
+  .notify
+
+    &--info
+      a
+        color: darken($info-color, 20%) !important
+    &--success
+      a
+        color: darken($success-color, 20%) !important
+    &--danger
+      a
+        color: darken($danger-color, 20%) !important

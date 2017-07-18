@@ -5,9 +5,7 @@ if ( typeof Object.create !== 'function' ) {
     F.prototype = obj;
     return new F();
   };
-};;;
-
-
+};
 
 
 ;(function($, window, document, undefined){
@@ -132,12 +130,6 @@ if ( typeof Object.create !== 'function' ) {
           });
         }
 
-        // if (scrollP < 200){
-        //   nav.addClass('nav--strip');
-        //
-        // }else{
-        //   nav.removeClass('nav--strip');
-        // }
 
       });
     },
@@ -192,3 +184,62 @@ if ( typeof Object.create !== 'function' ) {
 
 
 jQuery(document).Luna();
+
+
+//woocommerce
+jQuery(document).on('click', '.blush-quantity .minus', function() {
+    var qtyWrap = jQuery(this).parent('.quantity');
+    var quantity = parseInt(qtyWrap.find('.qty').val(), 10);
+    var min_num = parseInt(qtyWrap.find('.qty').attr('min'), 10);
+    var max_num = parseInt(qtyWrap.find('.qty').attr('max'), 10);
+    var step = parseInt(qtyWrap.find('.qty').attr('step'), 10);
+    jQuery('input[name="update_cart"]').removeAttr("disabled");
+
+    if (quantity > min_num) {
+        quantity = quantity - step;
+        if (quantity > 0)
+            qtyWrap.find('.qty').val(quantity);
+    }
+    console.log('clicked');
+});
+
+jQuery(document).on('click', '.blush-quantity .plus', function() {
+    var qtyWrap = jQuery(this).parent('.quantity');
+    var quantity = parseInt(qtyWrap.find('.qty').val(), 10);
+    var min_num = parseInt(qtyWrap.find('.qty').attr('min'), 10);
+    var max_num = parseInt(qtyWrap.find('.qty').attr('max'), 10);
+    var step = parseInt(qtyWrap.find('.qty').attr('step'), 10);
+
+    jQuery('input[name="update_cart"]').removeAttr("disabled");
+
+    if (max_num) {
+        if (quantity < max_num) {
+            quantity = quantity + step;
+            qtyWrap.find('.qty').val(quantity);
+        }
+    } else {
+        quantity = quantity + step;
+        qtyWrap.find('.qty').val(quantity);
+    }
+});
+
+
+Waves.init();
+Waves.attach('.btn, .button, img');
+// Waves.attach('.button');
+// Waves.attach('a img');
+
+
+
+// Function to slabtext the H1 headings
+function slabTextHeadlines() {
+    $(".slabtext").slabText({
+        // Don't slabtext the headers if the viewport is under 380px
+        "viewportBreakpoint": 350,
+        "maxFontSize": "100px",
+        // "minCharsPerLine" : 10
+    });
+};
+
+
+slabTextHeadlines();

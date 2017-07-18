@@ -16,13 +16,13 @@
 get_header(); ?>
 
 	<div class="row ">
+
 		<div class="md-col-3">
-			<aside class="widget-area">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae nobis quam distinctio, beatae numquam ratione facere cumque, voluptatibus molestiae, autem magnam pariatur laboriosam corporis veniam maxime eaque quos accusamus sit.
-			</aside>
+			<?php get_sidebar(); ?>
 		</div>
 
-			<div id="primary" class="content-area md-col-6 ">
+
+			<div id="primary" class="content-area md-col-6">
 				<main id="main" class="site-main">
 
 					<?php
@@ -41,9 +41,17 @@ get_header(); ?>
 				</main><!-- #main -->
 				<?php the_posts_pagination();  ?>
 			</div><!-- #primary -->
+
+
+
 			<div class="md-col-3">
-				<?php get_sidebar(); ?>
+				<aside class="widget-area">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae nobis quam distinctio, beatae numquam ratione facere cumque, voluptatibus molestiae, autem magnam pariatur laboriosam corporis veniam maxime eaque quos accusamus sit.
+				</aside>
 			</div>
+
+
+
 
 
 	</div>

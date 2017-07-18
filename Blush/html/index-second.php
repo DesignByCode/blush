@@ -12,6 +12,7 @@
  * @package Blush
  */
 
+
 get_header(); ?>
 
 	<div class="row flex">
@@ -41,6 +42,5 @@ get_header(); ?>
 
 	</div>
 
-	<h>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum explicabo totam quia aut maiores error! Autem labore impedit possimus voluptates molestiae animi alias dignissimos non. Praesentium voluptatum inventore ipsa accusamus.</h>
 
 <?php get_footer(); ?>

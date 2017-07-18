@@ -33,6 +33,8 @@ const SassArray = [];
 
 const JavascriptArray = [
   Paths.bower + '/jquery/dist/jquery.js',
+  Paths.bower + '/slabText/js/jquery.slabtext.js',
+  Paths.bower + '/Waves/dist/waves.js',
   theme + '/js/navigation.js'
 ];
 

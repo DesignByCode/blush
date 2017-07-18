@@ -48,6 +48,8 @@ function blush_header_style() {
 	// If we get this far, we have custom styles. Let's do this.
 	?>
 	<style type="text/css">
+
+
 	<?php
 		// Has the text been hidden?
 		if ( ! display_header_text() ) :
@@ -61,11 +63,15 @@ function blush_header_style() {
 		// If the user has set a custom color for the text use that.
 		else :
 	?>
+	  .hero__heading a,
 		.site-title a,
 		.site-description {
 			color: #<?php echo esc_attr( $header_text_color ); ?>;
 		}
 	<?php endif; ?>
+
+
+
 	</style>
 	<?php
 }

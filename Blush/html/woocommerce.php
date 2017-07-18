@@ -14,23 +14,11 @@
  */
 
 get_header(); ?>
-
-
-
 	<div class="row flex">
-			<div id="primary" class="content-area content-area-left md-col-8 lg-col-9">
+			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
-<?php blush_row_start(); ?>
-<?php woocommerce_content(); ?>
-	<?php blush_row_end(); ?>
+					<?php woocommerce_content(); ?>
 				</main><!-- #main -->
-				<?php the_posts_pagination();  ?>
 			</div><!-- #primary -->
-
-			<div class="md-col-4 lg-col-3">
-				<?php get_sidebar('shop'); ?>
-			</div>
-
 	</div>
-
 <?php get_footer(); ?>

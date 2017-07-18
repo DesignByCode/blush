@@ -1,0 +1,33 @@
+
+
+span.onsale-banner
+  position: absolute
+  background: $tri-color
+  background: linear-gradient($tri-color, darken($tri-color, 10%))
+  color: #fff
+  width: 130px
+  height: 40px
+  line-height: 40px
+  text-align: center
+  top: -10px
+  left: -10px
+  +radius(5px 0 0 0 )
+  box-shadow: rgba(#000, 0.5) 5px 5px 10px
+  z-index: 2
+
+  &::after,
+  &::before
+    position: absolute
+    content: ''
+    z-index: -1
+    background: desaturate( darken($tri-color, 30%), 10%)
+    width: 10px
+    height: 10px
+    display: block
+
+  &::before
+    +radius(0 5px 0 0 )
+    right: -10px
+  &::after
+    +radius(0 0 0 5px )
+    bottom: -10px

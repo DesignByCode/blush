@@ -81,6 +81,7 @@ $_breakpoints : (xs: $grid__breakpoint__xs, sm: $grid__breakpoint__sm, md: $grid
 // Main Colors
 $primary-color: #069
 $secondary-color: #5c258d
+$tri-color: yellow
 $dark-color: #021826
 $light-color: #fff
 
@@ -100,12 +101,13 @@ $theme: 'purple'
 @import "theme-colors/main"
 
 
+
 // ==========================================
 // == COLOR MAP
 // ==========================================
 
 $_colors: (primary: $primary-color, secondary: $secondary-color, dark: $dark-color)
-$_custom_colors: (black: #000, white: $light-color)
+$_custom_colors: (black: #000, white: $light-color, tri: $tri-color)
 
 $_nofiy_colors: (default: $light-color, info: $info-color, success: $success-color, warning: $warning-color, danger: $danger-color, )
 

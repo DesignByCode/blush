@@ -22,7 +22,7 @@ add_editor_style();
 </head>
 
 <body <?php body_class(); ?>>
-<?php the_header_image_tag(); ?>
+
 <div id="page" class="site">
 
 	<?php if ( is_front_page() ) : ?>
@@ -32,7 +32,7 @@ add_editor_style();
 				<div class="row">
 					<div class="md-col-8 md-offset-2 text-align-center center-the-block">
 						<?php the_custom_logo();  ?>
-						<h1 class="hero__heading">
+						<h1 class="hero__heading site-title">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a>
 						</h1>
 						<?php
@@ -47,22 +47,18 @@ add_editor_style();
 			</div>
 		</header>
 	<?php else: ?>
-		<div class="top-menu">
+		<!-- <div class="top-menu">
 			<div class="wrapper">
 				<div class="row">
-					<div class="sm-col-4 hide sm-show">
-						<h2>Second menu</h2>
-					</div>
-					<div class="xs-col-4 sm-offset-4 sm-text-align-right">
-						<h2>
+
+					<div class="xs-col-4 sm-offset-8 sm-text-align-right">
 							<a href="#"> <i class="lunacon lunacon-user"></i></a>
 							<a href="#"> <i class="lunacon lunacon-user"></i></a>
 							<a href="#"> <i class="lunacon lunacon-user"></i></a>
-						</h2>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	<?php endif; ?>
 
 	<nav class="nav">
@@ -86,5 +82,7 @@ add_editor_style();
 		</div>
 	</nav>
 
+
+<!-- <?php the_header_image_tag(); ?> -->
 
 	<div id="content" class="site-content wrapper">

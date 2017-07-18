@@ -42,6 +42,7 @@ function blush_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size('small-tumbnail', 250, 250, true);
+	add_image_size( 'featured-image', 2000, 1200, true );
 	add_image_size('banner-image', 1000, 250, true);
 
 	// This theme uses wp_nav_menu() in one location.
@@ -62,10 +63,11 @@ function blush_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'blush_custom_background_args', array(
-		'default-color' => 'f7f7f7',
-		'default-image' => '',
-	) ) );
+	// add_theme_support( 'custom-background', apply_filters( 'blush_custom_background_args', array(
+	// 	'default-color' => '',
+	// 	'default-image' => '',
+	//
+	// ) ) );
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
@@ -144,9 +146,44 @@ add_action( 'widgets_init', 'blush_widgets_init' );
  * Enqueue scripts and styles.
  */
 function blush_scripts() {
-	wp_enqueue_style( 'blush-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'blush-navigation', get_template_directory_uri() . '/js/app.js', array(), '20151915', true );
+	$skin = get_theme_mod('blush_theme_skin_name');
+
+	switch ($skin) {
+		// case 'default':
+		// 	wp_enqueue_style( 'blush-style', get_stylesheet_uri() );
+		// 	break;
+
+		case 'steam':
+			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-steam.css');
+			break;
+
+		case 'razzmic-gunmetal':
+			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-razzmic-gunmetal.css');
+			break;
+
+		case 'custom':
+			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-custom.css');
+			break;
+
+		case 'baby-girl':
+			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-baby-girl.css');
+			break;
+
+		case 'fly-fishing':
+			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-fly-fishing.css');
+			break;
+
+		default:
+			wp_enqueue_style( 'blush-style', get_stylesheet_uri() );
+			break;
+	}
+
+
+
+	// wp_deregister_script( 'jquery' );
+
+	wp_enqueue_script( 'blush-navigation', get_template_directory_uri() . '/js/app.js', array('jquery'), '20151915', true );
 
 	wp_enqueue_script( 'blush-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -181,7 +218,7 @@ add_action('wp_before_admin_bar_render', 'dbc_add_link_to_admin_bar');
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -196,7 +233,7 @@ require get_template_directory() . '/inc/template-functions.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -211,13 +248,29 @@ require get_template_directory(). '/inc/LunaWalkerMenu.php';
 /**
  * Load custom single woocommerce page layout
  */
-require get_template_directory(). '/custom-inc/woocommerce-single-products-page.php';
+require get_template_directory(). '/woocommerce-functions/woocommerce-single-products-page.php';
+
+
+/**
+ * Load Customizer settings
+ */
+require get_template_directory(). '/inc/blush-customizer.php';
+
+
 
 
 function vnmFunctionality_embedWrapper2($html, $url, $attr, $post_id) {
     return '<div class="embedwrapper">' . $html . '</div>';
 }
 
+/**
+ * Responsive Youtube embed
+ * @param  [type] $html    [description]
+ * @param  [type] $url     [description]
+ * @param  [type] $attr    [description]
+ * @param  [type] $post_id [description]
+ * @return [type]          [description]
+ */
 function blush_embed_youtub_videos($html, $url, $attr, $post_id) {
 
     if (strpos($html, 'youtube') !== false) {

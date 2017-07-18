@@ -27,8 +27,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php post_class(); ?>>
+<div class="sm-col-6 md-col-3">
+	<div class="single-product-item">
 	<?php
+
+
+
 	/**
 	 * woocommerce_before_shop_loop_item hook.
 	 *
@@ -66,5 +70,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_template_loop_add_to_cart - 10
 	 */
 	do_action( 'woocommerce_after_shop_loop_item' );
+
+
+
 	?>
-</li>
+	</div>
+
+</div>

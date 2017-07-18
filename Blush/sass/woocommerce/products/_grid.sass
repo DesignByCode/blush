@@ -1,0 +1,55 @@
+
+
+.woocommerce
+  .products
+
+    a
+      color: $primary-color
+      // width: 100%
+      &:hover
+        text-decoration: none
+
+
+  h2.woocommerce-loop-product__title,
+  h2.woocommerce-loop-category__title
+    font-size: 18px
+    line-height: 1.2
+    mark
+      background: #fff
+      color: $secondary-color
+
+  span.price
+    margin-bottom: $the__global__padding
+    display: block
+
+    del
+      margin-right: $the__global__padding
+
+  & .single-product-item
+    position: relative
+    padding:  $the__global__padding
+    margin-bottom: $the__global__padding
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    box-shadow: rgba(#000, 0.35) 0 0 5px
+    height: calc(100% - #{$the__global__padding} )
+
+    img
+      width: 100%
+      height: auto
+      // border: solid 5px #fff
+
+    a.button
+      @extend .btn
+      @extend .btn--secondary
+
+      + a
+        @extend .btn
+
+
+  .single-product-item-padder
+    height: 20px
+    background: #eee
+    width: 100%
+    display: block

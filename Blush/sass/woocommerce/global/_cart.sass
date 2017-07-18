@@ -1,0 +1,33 @@
+
+
+.woocommerce
+  a.remove
+    color: $danger-color !important
+    line-height: 22px
+
+    &:hover
+      color: #fff
+      background: $danger-color
+
+
+  .coupon__wrapper
+    padding: 20px
+    margin-bottom: $the__global__padding
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    flex-wrap: wrap
+
+    .form__item
+      width: 100%
+      margin-bottom: $the__global__padding
+      +media-up(md)
+        width: 300px
+        max-width: 100%
+        margin-bottom: 0
+
+    .btn
+
+      +media-down(md)
+        width: 100%
+        margin-bottom: $the__global__padding

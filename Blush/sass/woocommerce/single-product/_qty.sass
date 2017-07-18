@@ -1,11 +1,46 @@
 
 
 
-.quantity
-  width: 100px
-
 
 .qty
-  @extend .form__item
-  width: 100% !important
-  // border: solid 2px $primary-color
+  border: solid 1px $the__form__border__color
+  box-shadow: none
+  background: #fff
+  padding: 4px 8px
+  +clearfix
+
+
+
+.blush-quantity
+  margin-right: $the__global__padding
+  display: block
+
+  .minus,
+  .plus,
+  .qty
+    float: left
+    text-align: center
+    padding: 4px 16px
+    line-height: (12px + $the__button__font__size)
+    display: block
+    height: 40px
+
+  .minus,
+  .plus
+    background: $mute-color
+    color: darken($mute-color, 45%)
+
+    &:hover
+      background: darken($mute-color, 5%)
+      color: $primary-color
+
+
+  .minus
+    +radius($global-border-radius 0 0 $global-border-radius)
+
+  .plus
+    +radius(0 $global-border-radius  $global-border-radius 0)
+
+
+.woocommerce td.product-quantity
+  min-width: 185px
