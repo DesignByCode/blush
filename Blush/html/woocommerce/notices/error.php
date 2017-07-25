@@ -25,7 +25,7 @@ if ( ! $messages ) {
 }
 
 ?>
-<ul class="notify notify__dismissable notify--danger">
+<ul class="notify notify__dismissable notify--danger-light">
 	<span class="notify__close"></span>
 	<?php foreach ( $messages as $message ) : ?>
 		<li><?php echo wp_kses_post( $message ); ?></li>

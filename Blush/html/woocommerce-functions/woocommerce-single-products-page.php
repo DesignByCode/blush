@@ -28,3 +28,56 @@ function blush_flash_sales(){
 
 add_action('woocommerce_before_shop_loop_item_title', 'blush_flash_sales', 10);
 add_action('woocommerce_before_single_product_summary', 'blush_flash_sales', 10);
+
+
+/**
+ *
+ * BUTTON TEXT
+ *
+ *
+ *
+ *
+ *
+ */
+
+
+ add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );
+
+ function woo_custom_cart_button_text() {
+
+         return __( 'Add to your cart', 'blush' );
+
+ }
+
+
+
+/**
+ * Change button text on grid layout
+ */
+add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
+/**
+ * custom_woocommerce_template_loop_add_to_cart
+*/
+function custom_woocommerce_product_add_to_cart_text() {
+	global $product;
+
+	$product_type = $product->product_type;
+
+	switch ( $product_type ) {
+		case 'external':
+			return __( 'Buy product', 'blush' );
+		break;
+		case 'grouped':
+			return __( 'View products', 'blush' );
+		break;
+		case 'simple':
+			return __( 'Add to cart ', 'blush' );
+		break;
+		case 'variable':
+			return __( 'Select options ', 'blush' );
+		break;
+		default:
+			return __( 'Read more', 'blush' );
+	}
+
+}

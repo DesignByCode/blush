@@ -27,5 +27,5 @@ if ( ! $messages ) {
 ?>
 
 <?php foreach ( $messages as $message ) : ?>
-	<div class="notify notify__dismissable notify--info"><?php echo wp_kses_post( $message ); ?></div>
+	<div class="notify notify__dismissable notify--info-light"><?php echo wp_kses_post( $message ); ?></div>
 <?php endforeach; ?>

@@ -24,5 +24,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <a href="<?php echo esc_url( wc_get_checkout_url() );?>" class="checkout-button btn btn--primary">
-	<?php esc_html_e( 'Proceed to checkout', 'blush' ); ?>
+	<i class="lunacon lunacon-cart-solid btn__icon--left"></i> <?php esc_html_e( 'Proceed to checkout', 'blush' ); ?>
 </a>

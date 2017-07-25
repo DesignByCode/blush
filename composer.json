@@ -1,0 +1,12 @@
+{
+    "name": "claude/themebuilder",
+    "authors": [
+        {
+            "name": "Claude",
+            "email": "claudemyburgh@gmail.com"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "^4.8"
+    }
+}

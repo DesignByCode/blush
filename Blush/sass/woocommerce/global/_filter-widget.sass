@@ -1,0 +1,79 @@
+
+
+.filter__widget
+  position: fixed
+  top: 0
+  left: -330px
+  bottom: 0
+  width: 300px
+  background: $dark-color
+  color: #fff
+  text-shadow: #000 0 0 2px
+  padding: $the__global__padding
+  display: block
+  transition: all 0.3s ease
+  z-index: 999
+  +media-up(md)
+    z-index: 100000
+    left: -480px
+    width: 480px
+  // font-size: 80%
+  // overflow-y: auto
+
+  &__trigger
+    position: absolute
+    right: -50px
+    top: 50%
+    height: 50px
+    width: 50px
+    display: block
+    background: $dark-color
+    color: #fff
+    text-align: center
+    line-height: 50px
+    +radius( 0 10px 10px 0)
+    cursor: pointer
+
+
+  &-open
+    left: 0
+    box-shadow: rgba(#000, 0.35) 5px 0 10px
+
+
+  &__inner
+    overflow-x: hidden
+    overflow-y: auto
+    height: 100%
+    padding: $the__global__padding
+
+  .widget
+    margin-bottom: $the__global__padding * 2
+
+    .woocommerce-product-search input[type="submit"]
+      @extend .btn
+      @extend .btn--secondary
+      @extend .btn--block
+      margin-bottom: $the__global__padding
+    .woocommerce-product-search input[type="search"]
+      @extend .form__item
+      @extend .form__item--md
+      margin-bottom: $the__global__padding
+
+
+  // .widget-title
+  //   background: transparent
+  //   font-size: 18px
+  //
+  //   &::after
+  //     border: none
+
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range
+  background: $light-color
+
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle
+  background: darken($light-color, 25%)
+
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content
+  background: darken($light-color, 20%)

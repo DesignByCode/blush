@@ -44,9 +44,46 @@
         width: 100%
 
 
+.search-bar
+  position: relative
+  margin-top: $the__global__padding * 3
+
+  input
+    padding-right: 50px
+    filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
+
+  ::placeholder
+    color: darken($mute-border-color, 15%)
+    letter-spacing: 3px
+    font-weight: 400
+    font-style: italic
+
+  button
+    position: absolute
+    right: 5px
+    top: 5px
+    width: 40px
+    height: 40px
+    padding: 5px
+    border: none
+    background: transparent
+    display: block
+    cursor: pointer
+    z-index: 2
+
+
+
+.after-search
+  margin-top: 15px
+
 .banner-image
   position: relative
   margin-bottom: $the__global__padding
+  width: 100%
   img
     filter: drop-shadow(rgba(black, 0.25) 0 0 2px)
+    width: 100%
     +radius
+
+  .waves-effect
+    width: 100%    

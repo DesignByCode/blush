@@ -47,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * woocommerce_after_subcategory_title hook.
 	 */
+
 	do_action( 'woocommerce_after_subcategory_title', $category );
 
 	/**

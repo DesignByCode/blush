@@ -18,4 +18,5 @@
 ?>
 
 <div class="clearfix"></div>
+
 <div class="products row flex">

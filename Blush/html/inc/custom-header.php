@@ -20,8 +20,8 @@ function blush_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'blush_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => 'ffffff',
-		'width'                  => 1000,
-		'height'                 => 250,
+		'width'                  => 1200,
+		'height'                 => 600,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'blush_header_style',
 	) ) );
@@ -65,10 +65,16 @@ function blush_header_style() {
 	?>
 	  .hero__heading a,
 		.site-title a,
+		.featured__banner,
 		.site-description {
 			color: #<?php echo esc_attr( $header_text_color ); ?>;
 		}
+
+
+
+
 	<?php endif; ?>
+
 
 
 

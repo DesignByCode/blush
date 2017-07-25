@@ -43,11 +43,14 @@ function blush_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size('small-tumbnail', 250, 250, true);
 	add_image_size( 'featured-image', 2000, 1200, true );
-	add_image_size('banner-image', 1000, 250, true);
+	add_image_size('banner-image', 1200, 250, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'blush' ),
+		'footer-1' => esc_html__('Footer Section 1', 'blush'),
+		'footer-2' => esc_html__('Footer Section 2', 'blush'),
+		'footer-3' => esc_html__('Footer Section 3', 'blush')
 	) );
 
 	/*
@@ -62,12 +65,7 @@ function blush_setup() {
 		'caption',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	// add_theme_support( 'custom-background', apply_filters( 'blush_custom_background_args', array(
-	// 	'default-color' => '',
-	// 	'default-image' => '',
-	//
-	// ) ) );
+	
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
@@ -83,6 +81,31 @@ function blush_setup() {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
+
+
+	/**
+	 * Theme default setup
+	 */
+
+	$starter_content = array(
+		'nav_menus' => array(
+			'footer-1' => array(
+				'name' => __('Footer T&amp;C', 'blush'),
+				'items' => array(
+					'link_home',
+					'page_blog',
+					'page_about'
+
+				)
+			)
+		)
+	);
+
+	$starter_content = apply_filters( 'blush_starter_content', $starter_content );
+
+	add_theme_support( 'starter-content', $starter_content );
+
+
 }
 endif;
 add_action( 'after_setup_theme', 'blush_setup' );
@@ -108,7 +131,7 @@ function blush_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar on Left', 'blush' ),
 		'id'            => 'sidebar-left',
-		'description'   => esc_html__( 'Add widgets here.', 'blush' ),
+		'description'   => esc_html__( 'Add widgets to left sidebar.', 'blush' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -118,7 +141,7 @@ function blush_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar on Right', 'blush' ),
 		'id'            => 'sidebar-right',
-		'description'   => esc_html__( 'Add widgets here.', 'blush' ),
+		'description'   => esc_html__( 'Add widgets to right sidebar.', 'blush' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -126,13 +149,13 @@ function blush_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer', 'blush' ),
-		'id'            => 'footer',
-		'description'   => esc_html__( 'Add widgets here.', 'blush' ),
+		'name'          => esc_html__( 'Shop', 'blush' ),
+		'id'            => 'shop',
+		'description'   => esc_html__( 'Will only display on shop pages.', 'blush' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="filter-title">',
+		'after_title'   => '</h3>',
 	) );
 
 
@@ -179,6 +202,7 @@ function blush_scripts() {
 			break;
 	}
 
+	// wp_enqueue_style( 'blush-style', get_stylesheet_uri() );
 
 
 	// wp_deregister_script( 'jquery' );
@@ -202,12 +226,12 @@ function dbc_add_link_to_admin_bar(){
 	global $wp_admin_bar;
 	$wp_admin_bar->add_menu(array(
 		'id' => 'designbycode_website',
-		'title' => 'DESIGN BY CODE',
+		'title' => __('DESIGN BY CODE', 'blush'),
 		'href' => 'http://designbycode.co.za'
 	));
 	$wp_admin_bar->add_menu(array(
 		'id' => 'everhost_website',
-		'title' => 'EVERHOST',
+		'title' => __('EVERHOST', 'blush'),
 		'href' => 'https://everhost.co.za'
 	));
 }
@@ -218,7 +242,7 @@ add_action('wp_before_admin_bar_render', 'dbc_add_link_to_admin_bar');
 /**
  * Implement the Custom Header feature.
  */
-// require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -281,3 +305,30 @@ function blush_embed_youtub_videos($html, $url, $attr, $post_id) {
 }
 
 add_filter('embed_oembed_html', 'blush_embed_youtub_videos', 10, 4);
+
+
+$defaults = array(
+	'default-color'          => '',
+	'default-image'          => '',
+	'default-repeat'         => 'no-repeat',
+	'default-position-x'     => 'center',
+	'default-attachment'     => '',
+	'wp-head-callback'       => '_custom_background_cb',
+	'admin-head-callback'    => '',
+	'admin-preview-callback' => ''
+);
+add_theme_support( 'custom-background', $defaults );
+
+
+function blush_page_title(){
+	$title = '';
+	if( is_shop() ){
+		$title =  __('Shop', 'blush');
+	}elseif ( is_product_category() ){
+		$title = single_term_title();
+	}else{
+		$title = single_post_title();
+	}
+
+	return $title;
+}

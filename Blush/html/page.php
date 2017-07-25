@@ -15,7 +15,7 @@
 
 get_header(); ?>
 
-	<div class="row flex">
+	<div class="row">
 			<div id="primary" class="content-area content-area-left md-col-8 lg-col-9">
 				<main id="main" class="site-main">
 
@@ -37,7 +37,8 @@ get_header(); ?>
 			</div><!-- #primary -->
 
 			<div class="md-col-4 lg-col-3">
-				<?php get_sidebar(); ?>
+
+				<?php get_sidebar( ); ?>
 			</div>
 
 	</div>

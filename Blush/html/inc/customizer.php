@@ -20,11 +20,14 @@ function blush_customize_register( $wp_customize ) {
 			'selector'        => '.site-title a',
 			'render_callback' => 'blush_customize_partial_blogname',
 		) );
+
 		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
 			'selector'        => '.site-description',
 			'render_callback' => 'blush_customize_partial_blogdescription',
 		) );
 	}
+
+
 }
 add_action( 'customize_register', 'blush_customize_register' );
 

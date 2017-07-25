@@ -46,19 +46,7 @@ add_editor_style();
 				</div>
 			</div>
 		</header>
-	<?php else: ?>
-		<!-- <div class="top-menu">
-			<div class="wrapper">
-				<div class="row">
 
-					<div class="xs-col-4 sm-offset-8 sm-text-align-right">
-							<a href="#"> <i class="lunacon lunacon-user"></i></a>
-							<a href="#"> <i class="lunacon lunacon-user"></i></a>
-							<a href="#"> <i class="lunacon lunacon-user"></i></a>
-					</div>
-				</div>
-			</div>
-		</div> -->
 	<?php endif; ?>
 
 	<nav class="nav">
@@ -83,6 +71,15 @@ add_editor_style();
 	</nav>
 
 
-<!-- <?php the_header_image_tag(); ?> -->
+		<div class="featured__banner ">
+				<h1 class="text-align-center featured__banner__header"><?php echo blush_page_title(); ?></h1>
+				<p>
+					<!-- <?php header_image(); ?> -->
+				</p>
+		</div>
+
+
+		<!-- <?php the_header_image_tag(); ?> -->
+
 
 	<div id="content" class="site-content wrapper">

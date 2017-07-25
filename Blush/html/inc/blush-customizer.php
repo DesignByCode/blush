@@ -4,78 +4,53 @@
 function blush_custom_settings( $wp_customize ){
 
   $wp_customize->add_section('blush_custom_colors', array(
-    'title' => __('Bush Theme Custom Colors', 'blush'),
-    'priority' => '30'
+    'title' => __('Sidebar Colors', 'blush'),
+    'priority' => '70',
+    'capability'  => 'edit_theme_options',
   ));
-
-  $wp_customize->add_setting('blush_background_body_color', array(
-    'default' => '',
-    'transport' => 'refresh'
-  ));
-
-
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_background_body_color_control', array(
-    'label' => __('Body Background Colors', 'blush'),
-    'section' => 'blush_custom_colors',
-    'settings' => 'blush_background_body_color'
-  ) ));
-
-  //top-menu
-  $wp_customize->add_setting('blush_top_header_background_color', array(
-    'default' => '',
-    'transport' => 'refresh'
-  ));
-
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_top_header_background_color_control', array(
-    'label' => __('Top Header Background Colors', 'blush'),
-    'section' => 'blush_custom_colors',
-    'settings' => 'blush_top_header_background_color'
-  ) ));
-
-  //top-menu-text
-  $wp_customize->add_setting('blush_top_header_text_color', array(
-    'default' => '',
-    'transport' => 'refresh'
-  ));
-
-
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_top_header_text_color_control', array(
-    'label' => __('Top Header Text Colors', 'blush'),
-    'section' => 'blush_custom_colors',
-    'settings' => 'blush_top_header_text_color'
-  ) ));
-
-  /**
-   * Main text color
-   * @var [type]
-   */
-  $wp_customize->add_setting('blush_background_main_text_color', array(
-    'default' => '',
-    'transport' => 'refresh'
-  ));
-
-
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_background_main_text_color_control', array(
-    'label' => __('Main Text Colors', 'blush'),
-    'section' => 'blush_custom_colors',
-    'settings' => 'blush_background_main_text_color'
-  ) ));
 
 
   /**
    * Sidebar text color
    * @var [type]
    */
-  $wp_customize->add_setting('blush_background_text_color', array(
+  $wp_customize->add_setting('blush_sidebar_heading_text_color', array(
     'default' => '',
-    'transport' => 'refresh'
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color'
   ));
 
 
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_background_text_color_control', array(
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_sidebar_heading_text_color_control', array(
+    'label' => __('Sidebar Heading Text Colors', 'blush'),
+    'section' => 'blush_custom_colors',
+    'settings' => 'blush_sidebar_heading_text_color'
+  ) ));
+
+  $wp_customize->add_setting('blush_sidebar_text_color', array(
+    'default' => '',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color'
+  ));
+
+
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_sidebar_text_color_control', array(
     'label' => __('Sidebar Text Colors', 'blush'),
     'section' => 'blush_custom_colors',
-    'settings' => 'blush_background_text_color'
+    'settings' => 'blush_sidebar_text_color'
+  ) ));
+
+  $wp_customize->add_setting('blush_sidebar_link_text_color', array(
+    'default' => '',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_hex_color'
+  ));
+
+
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'blush_sidebar_link_text_color_control', array(
+    'label' => __('Sidebar Link Text Colors', 'blush'),
+    'section' => 'blush_custom_colors',
+    'settings' => 'blush_sidebar_link_text_color'
   ) ));
 
 
@@ -85,11 +60,14 @@ function blush_custom_settings( $wp_customize ){
 
    $wp_customize->add_section('blush_theme_skin', array(
      'title' => __('Bush Theme Skin', 'blush'),
-     'priority' => '29'
+     'priority' => '20',
+     'capability'  => 'edit_theme_options',
    ));
 
    $wp_customize->add_setting('blush_theme_skin_name', array(
-     'default' => 'default'
+     'default' => 'default',
+     'transport' => 'refresh',
+     'sanitize_callback' => 'blush_sanitize_radio'
    ));
 
    $wp_customize->add_control('blush_theme_skin_control', array(
@@ -109,8 +87,47 @@ function blush_custom_settings( $wp_customize ){
 
 
 
+   /**
+    * new image section
+    */
+
+
+    // $wp_customize->add_section('blush_page_banner_image', array(
+    //   'title' => __('Banner Image', 'blush'),
+    //   'priority' => 5,
+    //   'capability'  => 'edit_theme_options',
+    //   'description' => __('Allows you to customize some example settings for MyTheme.', 'blush'), //Descriptive tooltip
+    // ));
+    //
+    // $wp_customize->add_setting('blush_page_banner_image_setting', array(
+    //   'default' => '',
+    //   'transport' => 'refresh',
+    //   'sanitize_callback' => 'esc_url_raw'
+    // ));
+    //
+    //
+    // $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'blush_page_banner_image_control', array(
+    //   'label' => __('Sidebar Text Colors', 'blush'),
+    //   'section' => 'blush_page_banner_image',
+    //   'settings' => 'blush_page_banner_image_setting'
+    // ) ));
+
+
+
+
 
 }
+
+
+
+function blush_sanitize_radio($input, $setting){
+  // Ensure input is a slug
+  $input = sanitize_key($input);
+
+  return $input;
+}
+
+
 
 add_action('customize_register', 'blush_custom_settings');
 
@@ -121,30 +138,28 @@ add_action('customize_register', 'blush_custom_settings');
 function blush_customizer_css(){ ?>
 
   <style type="text/css">
-
-    body{
-      color: <?php echo get_theme_mod('blush_background_main_text_color'); ?>;
-      background-color: <?php echo get_theme_mod('blush_background_body_color'); ?>;
-    }
-
-    .widget-area{
+    #sidebar-left .widget,
+    #sidebar-right .widget{
       background: transparent;
-      color: <?php echo get_theme_mod('blush_background_text_color'); ?>;
+      color: <?php echo get_theme_mod('blush_sidebar_text_color'); ?>;
     }
 
-    .widget-title{
-      color: <?php echo get_theme_mod('blush_background_main_text_color'); ?>;
+    #sidebar-left .widget a,
+    #sidebar-right .widget a{
+
+      color: <?php echo get_theme_mod('blush_sidebar_link_text_color'); ?>;
+    }
+    #sidebar-left .widget-title,
+    #sidebar-right .widget-title{
+      color: <?php echo get_theme_mod('blush_sidebar_heading_text_color'); ?>;
     }
 
-    .top-menu{
-      background-color: <?php echo get_theme_mod('blush_top_header_background_color'); ?>;
-      color: <?php echo get_theme_mod('blush_top_header_text_color'); ?>;
+    .featured__banner{
+      background: url(<?php header_image(); ?>);
+      background-position: center top;
+      background-attachment: fixed;
+      background-size: cover;
     }
-
-    .top-menu a{
-      color: <?php echo get_theme_mod('blush_top_header_text_color'); ?>;
-    }
-
 
 
   </style>
