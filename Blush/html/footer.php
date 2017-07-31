@@ -47,11 +47,16 @@
 
 	<footer class="footer__copyrite">
 		<div class="wrapper">
+			<div class="row">
+			<?php if ( get_theme_mod('blush_ssl_image_setting') ): ?>
 			<div class="md-col-6 md-float-right md-text-align-right">
-			text
+				<a target="_blank" href="<?php echo get_theme_mod('blush_ssl_image_link_setting') ?>">
+					<img class="site-footer__ssl" src="<?php echo get_theme_mod('blush_ssl_image_setting') ?>" alt="SSL ">
+				</a>
 			</div>
 
-			<div class="row">
+			<?php endif; ?>
+
 				<div class="md-col-6 md-float-left">
 						<?php echo sprintf(
 							__('Designed by <a href="%1s" target="_blank">%2s</a>', 'blush'),
@@ -61,6 +66,10 @@
 			</div>
 		</div>
 	</footer>
+
+	<div class="scrollup">
+	<div class="wrapper"><a href="#" class="scrollup__button"></a></div>
+</div>
 
 
 </div><!-- #page -->

@@ -18,9 +18,12 @@
 		<?php the_post_thumbnail(); ?>
 	</figure>
 <?php endif; ?>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title text--primary">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+
+		<?php if ( !get_header_image() || true ): ?>
+			<header class="entry-header">
+				<?php the_title( '<h1 class="entry-title text--primary">', '</h1>' ); ?>
+			</header><!-- .entry-header -->
+		<?php endif; ?>
 
 	<div class="entry-content">
 		<?php the_content(); ?>

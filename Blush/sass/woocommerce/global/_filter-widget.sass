@@ -13,12 +13,12 @@
   display: block
   transition: all 0.3s ease
   z-index: 999
+  filter: drop-shadow(rgba(#000, 0.5) 5px 0 10px)
   +media-up(md)
     z-index: 100000
     left: -480px
     width: 480px
-  // font-size: 80%
-  // overflow-y: auto
+
 
   &__trigger
     position: absolute
@@ -37,7 +37,7 @@
 
   &-open
     left: 0
-    box-shadow: rgba(#000, 0.35) 5px 0 10px
+
 
 
   &__inner
@@ -58,14 +58,6 @@
       @extend .form__item
       @extend .form__item--md
       margin-bottom: $the__global__padding
-
-
-  // .widget-title
-  //   background: transparent
-  //   font-size: 18px
-  //
-  //   &::after
-  //     border: none
 
 
 .woocommerce .widget_price_filter .ui-slider .ui-slider-range

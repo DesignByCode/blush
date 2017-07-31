@@ -20,9 +20,10 @@ function blush_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'blush_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => 'ffffff',
-		'width'                  => 1200,
-		'height'                 => 600,
-		'flex-height'            => true,
+		'width'              	   => 2000,
+		'height'             		 => 1200,
+		'flex-height'       		 => true,
+		'video'             		 => true,
 		'wp-head-callback'       => 'blush_header_style',
 	) ) );
 }
@@ -71,12 +72,7 @@ function blush_header_style() {
 		}
 
 
-
-
 	<?php endif; ?>
-
-
-
 
 	</style>
 	<?php

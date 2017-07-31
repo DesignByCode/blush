@@ -227,26 +227,13 @@ jQuery(document).on('click', '.blush-quantity .plus', function() {
 FastClick.attach(document.body);
 
 Waves.init();
-Waves.attach('.btn, a.button, img');
-// Waves.attach('.button');
-// Waves.attach('a img');
+Waves.attach('a.btn, a.button, img');
 
 
-
-// Function to slabtext the H1 headings
-function slabTextHeadlines() {
-    $(".slabtext").slabText({
-        // Don't slabtext the headers if the viewport is under 380px
-        "viewportBreakpoint": 350,
-        "maxFontSize": "100px",
-        // "minCharsPerLine" : 10
-    });
-}
 
 (function filterSideBar(){
   $('.filter__widget__trigger').on('click', function(){
     $(this).parent('.filter__widget').toggleClass('filter__widget-open');
-    // $(this).find('.lunacon').removeClass('lunacon-chevron-right').addClass('lunacon-chevron-left');
   });
 })();
 
@@ -254,73 +241,15 @@ $('.slimscroll').slimscroll({
   size: '5px',
   height: '100%',
   wheelStep: 20,
-  // alwaysVisible: true,
-  // railVisible: true
 });
 
-
-// Parralax
-$.fn.parallax = function(options){
-  var opt,
-      self = $(this),
-      i,	par, top,	offset,	scroll,	hi,	dHeight, wWidth,
-  transform, offsets,	render,	winSize, windowWidth,	fullScreen;
-  opt = $.extend({
-    'parallaxOuter':  '.parallax-outer',
-    'parallaxInner': '.parallax-inner'
-  }, options);
-
-
-  var parallax = self,
-  parallaxBg = parallax.find(opt.parallaxInner),
-  win = $(window),
-  FrameHeight = parallaxBg.eq(0).closest(opt.parallaxOuter).height(),
-  DiffInHeight = parallaxBg.eq(0).height() - (FrameHeight + 20),
-  FrameCount = parallaxBg.length;
-
-  offsets = parallaxBg.get().map(function(div){
-    return $(div).offset();
-  });
-
-
-  render = function(){
-    top = win.scrollTop();
-    wWidth = $(window).width();
-    // Parralax effect
-    for( i = 0; i < FrameCount; i++ ){
-      par = parallaxBg[i];
-      offset = top - offsets[i].top;
-      if(wWidth > 600){
-        scroll = ~~(offset / FrameHeight * DiffInHeight);
-      }
-      transform = 'translate3d(0px,'+ scroll  +'px, 0px)';
-      par.style.webkitTransform = transform;
-      par.style.MozTransform = transform;
-      par.style.msTransform = transform;
-      par.style.OTransform = transform;
-      par.style.transform = transform;
-    }// end for loop
-  };
-
-  $(window).on('scroll', function(){
-    requestAnimFrame(render);
-  });
-
-  $(window).resize( function(){
-    requestAnimFrame(render);
-  });
-
-
-  return self;
-}; //end of plugin
-
-// $(document).parallax();
 
 
 // slabTextHeadlines();
 
 
-$(".featured__banner__header").slabText({
+$(".slab").slabText({
     // Don't slabtext the headers if the viewport is under 380px
-    "viewportBreakpoint":380
+    "viewportBreakpoint":380,
+
 });

@@ -1,0 +1,32 @@
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt
+  @extend .btn
+  @extend .btn--dark
+  font-weight: bold
+
+
+.btn--secondary, .filter__widget .widget .woocommerce-product-search input[type=submit], .woocommerce #respond input#submit.alt, .woocommerce #respond input[type=submit]#submit.alt, .woocommerce .single-product-item a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input[type=submit].button.alt, a.btn--secondary, button.btn--secondary, input[type=submit].btn--secondary,.btn--primary
+  background: #fff !important
+  color: #000 !important
+  border: solid 3px black !important
+  font-weight: bold !important
+
+  &:hover
+    background: #000
+    color: #fff
+
+
+.woocommerce .widget_shopping_cart .buttons a, .woocommerce.widget_shopping_cart .buttons a
+  @extend .btn
+  background: linear-gradient($tri-color, darken($tri-color, 10%))
+  margin-right: $the__global__padding
+  color: #000
+  font-weight: bold
+
+
+span.onsale-banner
+  color: darken($tri-color, 30%)
+  text-shadow: lighten($tri-color, 20%) 0px 1px 1px
+
+
+.site-footer a
+  color: $secondary-color

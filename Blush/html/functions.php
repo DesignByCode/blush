@@ -65,7 +65,7 @@ function blush_setup() {
 		'caption',
 	) );
 
-	
+
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
@@ -88,6 +88,23 @@ function blush_setup() {
 	 */
 
 	$starter_content = array(
+		'widgets' => array(
+			'sidebar-shop' => array(
+				'text_business_info',
+				'search',
+				'text_about',
+			),
+			'sidebar-left' => array(
+				'text_business_info',
+				'search',
+				'text_about',
+			),
+			'sidebar-right' => array(
+				'text_business_info',
+				'search',
+				'text_about',
+			),
+		),
 		'nav_menus' => array(
 			'footer-1' => array(
 				'name' => __('Footer T&amp;C', 'blush'),
@@ -182,19 +199,27 @@ function blush_scripts() {
 			break;
 
 		case 'razzmic-gunmetal':
-			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-razzmic-gunmetal.css');
+			wp_enqueue_style( 'blush-style-razzmic-gunmetal', get_template_directory_uri() . '/style-razzmic-gunmetal.css');
 			break;
 
 		case 'custom':
-			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-custom.css');
+			wp_enqueue_style( 'blush-style-custom', get_template_directory_uri() . '/style-custom.css');
 			break;
 
 		case 'baby-girl':
-			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-baby-girl.css');
+			wp_enqueue_style( 'blush-style-baby-girl', get_template_directory_uri() . '/style-baby-girl.css');
 			break;
 
 		case 'fly-fishing':
-			wp_enqueue_style( 'blush-style-stream', get_template_directory_uri() . '/style-fly-fishing.css');
+			wp_enqueue_style( 'blush-style-fly-fishing', get_template_directory_uri() . '/style-fly-fishing.css');
+			break;
+
+		case 'black-white':
+			wp_enqueue_style( 'blush-style-black-white', get_template_directory_uri() . '/style-black-white.css');
+			break;
+
+		case 'airbase':
+			wp_enqueue_style( 'blush-style-airbase', get_template_directory_uri() . '/style-airbase.css');
 			break;
 
 		default:

@@ -82,8 +82,58 @@ function blush_custom_settings( $wp_customize ){
        'custom' => __('Custom Set', 'blush'),
        'baby-girl' => __('Baby Girl', 'blush'),
        'fly-fishing' => __('Fly Fishing', 'blush'),
+       'black-white' => __('Black &amp; White', 'blush'),
+       'airbase' => __('Airbase', 'blush'),
      )
    ));
+
+
+   /**
+    * Footer ssl image
+    */
+
+    $wp_customize->add_section('blush_ssl_image', array(
+      'title' => __('Footer SSL Image', 'blush'),
+      'priority' => '90',
+      'capability'  => 'edit_theme_options',
+      'description' => __('Add SSL Image to the footer', 'blush')
+    ));
+
+    $wp_customize->add_setting('blush_ssl_image_setting', array(
+      'default' => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => '',
+
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'blush_ssl_control', array(
+      'label' => __('SSL Image', 'blush'),
+      'section' => 'blush_ssl_image',
+      'settings' => 'blush_ssl_image_setting',
+
+    ) ));
+
+    $wp_customize->add_setting('blush_ssl_image_link_setting', array(
+      'default' => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => ''
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'blush_ssl_link_control', array(
+      'label' => __('SSL Url', 'blush'),
+      'section' => 'blush_ssl_image',
+      'settings' => 'blush_ssl_image_link_setting',
+      'type' => 'url',
+    ) ));
+
+    function blush_ssl_sanitize(){
+      return;
+    }
+    function blush_ssl_url_sanitize(){
+      return;
+    }
+
+
 
 
 
@@ -91,26 +141,6 @@ function blush_custom_settings( $wp_customize ){
     * new image section
     */
 
-
-    // $wp_customize->add_section('blush_page_banner_image', array(
-    //   'title' => __('Banner Image', 'blush'),
-    //   'priority' => 5,
-    //   'capability'  => 'edit_theme_options',
-    //   'description' => __('Allows you to customize some example settings for MyTheme.', 'blush'), //Descriptive tooltip
-    // ));
-    //
-    // $wp_customize->add_setting('blush_page_banner_image_setting', array(
-    //   'default' => '',
-    //   'transport' => 'refresh',
-    //   'sanitize_callback' => 'esc_url_raw'
-    // ));
-    //
-    //
-    // $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'blush_page_banner_image_control', array(
-    //   'label' => __('Sidebar Text Colors', 'blush'),
-    //   'section' => 'blush_page_banner_image',
-    //   'settings' => 'blush_page_banner_image_setting'
-    // ) ));
 
 
 
@@ -126,6 +156,14 @@ function blush_sanitize_radio($input, $setting){
 
   return $input;
 }
+
+/**
+ * Return whether we're previewing the front page and it's a static page.
+ */
+function blush_is_static_front_page() {
+	return ( is_front_page() && ! is_home() );
+}
+
 
 
 

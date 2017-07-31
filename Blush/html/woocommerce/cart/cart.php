@@ -136,10 +136,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 						<div class="coupon__wrapper">
 							 <input type="text" name="coupon_code" class="form__item" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'blush' ); ?>" />
 							 <input type="submit" class="btn btn--secondary btn--lg" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'blush' ); ?>" />
+
+
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 					<?php } ?>
 
 					<input type="submit" class="btn btn--primary btn--lg" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'blush' ); ?>" />
+
+
+
+
+
 				</div>
 
 					<?php do_action( 'woocommerce_cart_actions' ); ?>

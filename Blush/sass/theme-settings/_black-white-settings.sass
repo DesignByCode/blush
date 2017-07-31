@@ -97,7 +97,7 @@ $warning-color: #f09300
 $success-color: #008c3a
 $danger-color: #ea4335
 
-$theme: 'purple'
+$theme: 'black-white'
 @import "theme-colors/main"
 
 
@@ -123,9 +123,9 @@ $_color_set: map-merge($_color_set, $_nofiy_colors)
 
 $global-border-radius: 5px
 
-$global-background-color: $light-color
-$global-font-color: #666
-$global-link-color: $primary-color
+$global-background-color: #f7f7f7
+$global-font-color: #000
+$global-link-color: darken($secondary-color, 15%)
 $global-header-font: 'Montserrat Alternates', sans-serif
 $global-body-font: 'Roboto', sans-serif
 
@@ -153,26 +153,26 @@ $the__button__border__radius: $global-border-radius
 
 $navigation__breakpoint: 900px
 $navigation__height: 60px
-$navigation__dropdown__links__height: 45px
+$navigation__dropdown__links__height: 60px
 $navigation__padding: 0px
-$navigation__brand__color: white
+$navigation__brand__color: $dark-color
 $navigation__brand__font__size: 28px
-$navigation__background__color: $primary-color
+$navigation__background__color: $light-color
 
-$navigation__links__color: white
-$navigation__links__color__hover: $primary-color
+$navigation__links__color: $dark-color
+$navigation__links__color__hover: lighten($dark-color, 5%)
 
 $navigation__links__background__color: transparent
-$navigation__links__background__color__hover: white
+$navigation__links__background__color__hover: darken($light-color, 5%)
 // Submenu
-$navigation__submenu__links__color: $primary-color
-$navigation__submenu__links__color__hover: $primary-color
-$navigation__submenu__links__background__color: #eee
-$navigation__submenu__links__background__color__hover: #ddd
+$navigation__submenu__links__color: $dark-color
+$navigation__submenu__links__color__hover: lighten($dark-color, 5%)
+$navigation__submenu__links__background__color: $light-color
+$navigation__submenu__links__background__color__hover: darken($light-color, 5%)
 
 // Nav Button
 $navicon__backgound__color: transparent
-$navicon__color: $mute-color
+$navicon__color: $dark-color
 $navicon__font__size: 16px
 $navicon__size: 40px
 

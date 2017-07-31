@@ -79,11 +79,11 @@ $_breakpoints : (xs: $grid__breakpoint__xs, sm: $grid__breakpoint__sm, md: $grid
 
 
 // Main Colors
-$primary-color: #069
-$secondary-color: #5c258d
-$tri-color: yellow
-$dark-color: #021826
-$light-color: #fff
+$primary-color: #a2bd30
+$secondary-color: #e84855
+$tri-color: teal
+$dark-color: #1a2521
+$light-color: #eee
 
 $mute-color: #f7f7f7
 $mute-border-color: #e6e9ec
@@ -97,7 +97,7 @@ $warning-color: #f09300
 $success-color: #008c3a
 $danger-color: #ea4335
 
-$theme: 'purple'
+$theme: 'airbase'
 @import "theme-colors/main"
 
 
@@ -123,7 +123,7 @@ $_color_set: map-merge($_color_set, $_nofiy_colors)
 
 $global-border-radius: 5px
 
-$global-background-color: $light-color
+$global-background-color: #f7f7f7
 $global-font-color: #666
 $global-link-color: $primary-color
 $global-header-font: 'Montserrat Alternates', sans-serif
@@ -153,22 +153,22 @@ $the__button__border__radius: $global-border-radius
 
 $navigation__breakpoint: 900px
 $navigation__height: 60px
-$navigation__dropdown__links__height: 45px
+$navigation__dropdown__links__height: 60px
 $navigation__padding: 0px
-$navigation__brand__color: white
+$navigation__brand__color: #fff
 $navigation__brand__font__size: 28px
-$navigation__background__color: $primary-color
+$navigation__background__color: $dark-color
 
-$navigation__links__color: white
-$navigation__links__color__hover: $primary-color
+$navigation__links__color: #fff
+$navigation__links__color__hover: #fff
 
 $navigation__links__background__color: transparent
-$navigation__links__background__color__hover: white
+$navigation__links__background__color__hover: $primary-color
 // Submenu
-$navigation__submenu__links__color: $primary-color
-$navigation__submenu__links__color__hover: $primary-color
-$navigation__submenu__links__background__color: #eee
-$navigation__submenu__links__background__color__hover: #ddd
+$navigation__submenu__links__color: #fff
+$navigation__submenu__links__color__hover: #fff
+$navigation__submenu__links__background__color: $primary-color
+$navigation__submenu__links__background__color__hover: darken($primary-color, 5%)
 
 // Nav Button
 $navicon__backgound__color: transparent

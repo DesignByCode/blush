@@ -1,0 +1,48 @@
+
+
+.nav-links
+  // border: solid 1px $primary-color
+  text-align: center
+
+  +clearfix
+
+  .page-numbers
+    display: inline-block
+    float: left
+    border: solid 1px $primary-color
+    padding: 5px 10px
+    color: $primary-color
+    white-space: nowrap
+
+    &:last-child
+      +radius(3px 0 0 3px)
+    &:last-child
+      +radius(0 3px 3px 0)
+
+    &:hover
+      text-decoration: none
+      background: $primary-color
+      color: #fff
+
+
+
+  .current
+    background: $primary-color
+    color: #fff
+
+
+
+.woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current
+  text-decoration: none
+  background: $primary-color
+  color: #fff
+
+
+.woocommerce nav.woocommerce-pagination ul
+  display: inline-block
+  white-space: nowrap
+  padding: 0
+  clear: both
+  border: 1px solid #d3ced2
+  border-right: 0
+  margin: 1px

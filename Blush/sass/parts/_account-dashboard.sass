@@ -19,7 +19,7 @@
       text-align: center
       display: inline-block
       font-family: "Lunacon"
-      content: $unicode-cart
+      content: ''
       margin-right: $the__global__padding
       color: $secondary-color
       +radius
@@ -27,3 +27,22 @@
   .is-active::before
     background: $secondary-color !important
     color: $mute-color !important
+
+
+  li.woocommerce-MyAccount-navigation-link--dashboard::before
+    content: $unicode-dashboard
+
+  li.woocommerce-MyAccount-navigation-link--orders::before
+    content: $unicode-basket-solid
+
+  li.woocommerce-MyAccount-navigation-link--downloads::before
+    content: $unicode-download
+
+  li.woocommerce-MyAccount-navigation-link--edit-address::before
+    content: $unicode-address-book
+
+  li.woocommerce-MyAccount-navigation-link--edit-account::before
+    content: $unicode-user-solid
+
+  li.woocommerce-MyAccount-navigation-link--customer-logout::before
+    content: $unicode-logout

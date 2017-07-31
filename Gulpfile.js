@@ -34,11 +34,12 @@ var SassArray = [];
 
 var JavascriptArray = [
   Paths.bower + '/jquery/dist/jquery.js',
+  Paths.bower + '/luna/Framework/js/luna.js',
   Paths.bower + '/fastclick/lib/fastclick.js',
   Paths.bower + '/jquery-slimscroll/jquery.slimscroll.js',
   Paths.bower + '/slabText/js/jquery.slabtext.js',
   Paths.bower + '/Waves/dist/waves.js',
-  theme + '/js/plugin.js'
+  theme + '/js/blush.js'
 ];
 
 var FontArray = [
@@ -48,7 +49,7 @@ var FontArray = [
 /** Sass Builder **/
 gulp.task('sass', function(){
   return gulp.src(theme + '/sass/**/*.{sass,scss}')
-  // return gulp.src(theme + '/sass/style-steam.{sass,scss}')
+  // return gulp.src(theme + '/sass/style-black-white.{sass,scss}')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({

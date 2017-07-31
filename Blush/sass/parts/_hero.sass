@@ -1,49 +1,127 @@
 .hero
   position: relative
-  color: #fff
-  text-shadow: rgba(black, 0.95) 1px 1px 30px
   overflow: hidden
+  display: block
+  width: 100%
+  height: 100%
   height: 100vh
-  padding-top: 50vh
+  color: #fff
+  text-shadow: rgba(#000, 0.75) 0 2px 10px
+  +media-down(md)
+    height: 50%
+    height: 50vh
 
-
-
+  .wrapper
+    position: relative
+    z-index: 2
 
   &__heading
-    position: relative
-    z-index: 2
-    font-size: 60px
+    font-size: 72px
     margin: 0
-    a
-      color: #fff
-      &:hover
-        text-decoration: none
+    padding: 0
+    +media-down(sm)
+      font-size: 42px
 
-  p
-    position: relative
-    z-index: 2
+  .center-the-block
+    position: absolute
+    top: 50vh
+    transform: translateY(-50%)
+    z-index: 5
+    +media-down(md)
+      top: 25vh
+
+  .site-description
+    font-size: 150%
+    padding: $the__global__padding 0
     margin: 0
+    color: #fff
+
+  a
+    text-decoration: none
 
 
-#hero-video
+    &:hover
+      text-decoration: none
+
+
+  .site-title
+    color: #fff
+
+.wp-custom-header
   position: absolute
-  min-width: 100%
-  min-height: 100vh
-  left: 0
-  right: 0
-  top: 0
   z-index: 1
-  // filter: grayscale(100%)
-  +media-down(md)
-    display: none
+  height: auto
+  left: 50%
+  max-width: 1000%
+  min-height: 100%
+  min-width: 100%
+  min-width: 100vw
+  width: auto
+  top: 50%
+  transform: translateX(-50%) translateY(-50%)
+
+  img,
+  video,
+  iframe
+    max-width: 1000%
+    min-height: 100%
+    min-width: 100%
+    min-width: 100vw
 
 
 
-.center-the-block
-  position: relative
-  z-index: 2
-  transform: translateY(-100%)
+
+.wp-custom-header-video-button
+  position: absolute
+  top: 30px
+  right: 30px
+  display: block
+  width: 60px
+  height: 60px
+  background: rgba(#000, 0.75)
+  border: solid 1px #000
+  overflow: hidden
+  +radius
+  text-indent: 500px
+  cursor: pointer
+  z-index: 10
+
+  &::after
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    text-align: center
+    line-height: 60px
+    font-family: "Lunacon"
+    color: #fff
+    text-indent: 0px
+
+.wp-custom-header-video-play::after
+  content: $unicode-bell-solid
+
+.wp-custom-header-video-pause::after
+  content: $unicode-bell-mute-solid
 
 
-.custom-logo
-  text-shadow: rgba(black, 0.95) 1px 1px 30px
+
+/* For browsers that support 'object-fit' */
+@supports ( object-fit: fill )
+  .wp-custom-header
+    position: absolute
+    margin: 0
+    padding: 0
+    & video,
+    & img,
+    & iframe
+      // position: absolute
+      margin: 0
+      margin-top: -50px
+      padding: 0
+  		height: 100%
+  		left: 0
+  		object-fit: fill
+  		top: 0
+  		transform: none
+  		width: 100%
