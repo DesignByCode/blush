@@ -43,8 +43,8 @@
 
   FastClick.attach(document.body);
 
-  Waves.init();
-  Waves.attach('a.btn, a.button, img');
+  // Waves.init();
+  // Waves.attach('a.btn, a.button, img');
 
 
 

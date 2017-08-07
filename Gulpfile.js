@@ -48,6 +48,7 @@ var FontArray = [
 
 /** Sass Builder **/
 gulp.task('sass', function(){
+  // return gulp.src(theme + '/sass/style.{sass,scss}')
   return gulp.src(theme + '/sass/**/*.{sass,scss}')
   // return gulp.src(theme + '/sass/style-black-white.{sass,scss}')
     .pipe(plumber())

@@ -23,6 +23,7 @@ function blush_custom_header_setup() {
 		'width'              	   => 2000,
 		'height'             		 => 1200,
 		'flex-height'       		 => true,
+		'flex-width'       		 => true,
 		'video'             		 => true,
 		'wp-head-callback'       => 'blush_header_style',
 	) ) );
